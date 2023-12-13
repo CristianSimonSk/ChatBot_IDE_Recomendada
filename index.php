@@ -21,7 +21,7 @@ if (isset($_POST['btn-enviar'])) {
 
         adicionarMensagem($userMessage, 'user-message');
 
-        exec('python3 app.py');
+        exec('python3 /var/www/html/ChatBot_IDE_Recomendada/app.py');
 
         $botMessage = file_get_contents("MensagemBot.txt");
 
