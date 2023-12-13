@@ -1,6 +1,6 @@
-#!/usr/bin/env python3
 import spacy
 import random
+import os
 from spacy.matcher import Matcher
 
 # Carregar o modelo de idioma
@@ -151,12 +151,22 @@ def processar_mensagem(mensagem):
 
     return random.choice(respostas["default"])
 
-with open("MensagemUser.txt", "r", encoding="utf-8") as arquivo_user:
-    user_message = arquivo_user.read()
+arquivo_user_path = "MensagemUser.txt"
+arquivo_bot_path = "MensagemBot.txt"
 
-# Processar a mensagem e obter a resposta do bot
-bot_message = processar_mensagem(user_message) #processar_mensagem(user_message)
+# Verificar se o arquivo MensagemUser.txt existe
+if not os.path.exists(arquivo_user_path):
+    print(f"O arquivo {arquivo_user_path} não foi encontrado.")
+else:
+    # Ler a mensagem do usuário
+    with open(arquivo_user_path, "r", encoding="utf-8") as arquivo_user:
+        user_message = arquivo_user.read()
 
-# Sobrescrever todo o conteúdo do arquivo MensagemBot.txt com a resposta
-with open("MensagemBot.txt", "w", encoding="utf-8") as arquivo_bot:
-    arquivo_bot.write(bot_message)
+    # Processar a mensagem e obter a resposta do bot
+    bot_message = processar_mensagem(user_message)
+
+    # Sobrescrever todo o conteúdo do arquivo MensagemBot.txt com a resposta
+    with open(arquivo_bot_path, "w", encoding="utf-8") as arquivo_bot:
+        arquivo_bot.write(bot_message)
+
+    print(f"Mensagem do bot: {bot_message}")
