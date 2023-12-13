@@ -128,7 +128,7 @@ if (isset($_POST['limpar_chat'])) {
 <body>
     <div class="container">
         <h1>Bem vindo ao Qual a IDE Recomendada</h1>
-        <a>Sinta-se a vontate para conversar com o nosso bot que fará uma recomendação conforme a sua preferencia!!</a>
+        <a>Sinta-se à vontade para interagir com nosso assistente virtual, que proporcionará recomendações personalizadas de acordo com suas preferências!</a>
 
         <div id="chat-container">
             <?php
