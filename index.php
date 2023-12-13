@@ -17,13 +17,13 @@ if (isset($_POST['btn-enviar'])) {
     if (isset($_POST['message'])) {
         $userMessage = $_POST['message'];
 
-        file_put_contents("MensagemUser.txt", $userMessage);
+        file_put_contents("/var/www/html/ChatBot_IDE_Recomendada/MensagemUser.txt", $userMessage);
 
         adicionarMensagem($userMessage, 'user-message');
 
         exec('python3 app.py');
 
-        $botMessage = file_get_contents("MensagemBot.txt");
+        $botMessage = file_get_contents("/var/www/html/ChatBot_IDE_Recomendada/MensagemBot.txt");
 
         adicionarMensagem($botMessage, 'bot-message');
     }

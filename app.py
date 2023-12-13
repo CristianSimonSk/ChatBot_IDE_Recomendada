@@ -151,8 +151,8 @@ def processar_mensagem(mensagem):
 
     return random.choice(respostas["default"])
 
-arquivo_user_path = "MensagemUser.txt"
-arquivo_bot_path = "MensagemBot.txt"
+arquivo_user_path = "/var/www/html/ChatBot_IDE_Recomendada/MensagemUser.txt"
+arquivo_bot_path = "/var/www/html/ChatBot_IDE_Recomendada/MensagemBot.txt"
 
 # Verificar se o arquivo MensagemUser.txt existe
 if not os.path.exists(arquivo_user_path):
