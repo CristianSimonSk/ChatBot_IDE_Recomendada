@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import spacy
 import random
-import os
 from spacy.matcher import Matcher
 
 # Carregar o modelo de idioma
@@ -141,7 +140,6 @@ respostas = {
     "default": ["Desculpe, não consegui compreender. Talvez você possa fazer uma pergunta relacionada a IDEs e linguagens de programação?","Parece que não consegui entender sua mensagem. Que tal fazer uma pergunta sobre IDEs ou linguagens de programação?","Desculpe, não consegui compreender completamente. Você tem alguma pergunta relacionada a IDEs ou linguagens de programação?","Peço desculpas pela minha falta de compreensão. Seria possível fazer uma pergunta sobre IDEs ou linguagens de programação?","Me desculpe, não consegui entender sua mensagem. Talvez você possa fazer uma pergunta sobre IDEs ou linguagens de programação?","Não consegui compreender o que você disse. Que tal fazer uma pergunta sobre IDEs ou linguagens de programação?","Desculpe, não consegui entender completamente. Você tem alguma pergunta sobre IDEs ou linguagens de programação?","Parece que não consegui compreender sua mensagem. Que tal perguntar algo relacionado a IDEs ou linguagens de programação?","Peço desculpas pela minha falta de compreensão. Seria possível fazer uma pergunta sobre IDEs ou linguagens de programação?","Me desculpe, não consegui entender sua mensagem. Que tal perguntar algo relacionado a IDEs ou linguagens de programação?"]
 }
 
-
 def processar_mensagem(mensagem):
     doc = nlp(mensagem.lower())
 
@@ -153,11 +151,8 @@ def processar_mensagem(mensagem):
 
     return random.choice(respostas["default"])
 
-if os.path.exists("MensagemUser.txt"):
-    with open("MensagemUser.txt", "r", encoding="utf-8") as arquivo_user:
-        user_message = arquivo_user.read()
-else:
-    print(f"O arquivo {"MensagemUser.txt"} não foi encontrado.")
+with open("MensagemUser.txt", "r", encoding="utf-8") as arquivo_user:
+    user_message = arquivo_user.read()
 
 # Processar a mensagem e obter a resposta do bot
 bot_message = processar_mensagem(user_message) #processar_mensagem(user_message)
