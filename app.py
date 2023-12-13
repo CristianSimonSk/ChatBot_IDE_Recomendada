@@ -154,7 +154,6 @@ def processar_mensagem(mensagem):
 with open("MensagemUser.txt", "r", encoding="utf-8") as arquivo_user:
     user_message = arquivo_user.read()
 
-
 # Processar a mensagem e obter a resposta do bot
 bot_message = processar_mensagem(user_message) #processar_mensagem(user_message)
 
